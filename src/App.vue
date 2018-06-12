@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Hi"/>
+    <kanban msg="Hi"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Kanban from './components/Kanban.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Kanban
   }
 }
 </script>

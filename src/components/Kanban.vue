@@ -28,13 +28,13 @@ export default {
     dragstart: function(e) {
       console.log("dragstart");
       e.dataTransfer.effectAllowed = 'move';
-      console.log(this);
+      console.log(e.target.innerHTML);
       e.dataTransfer.setData('text/html',this.innerHTML);
     },
     drophandler: function(e) {
       console.log(e);
       console.log("drophandler");
-      console.log(e.dataTransfer.getData('text/html'));  
+      console.log(e.target);  
     },
     dragover: function(e) {
       e.preventDefault();

@@ -1,6 +1,6 @@
 <template>
 <div class="kanban-container">
-  <div class="kanban-board" v-for="board in boards" :key="board.name" v-on:drop="drophandler">
+  <div class="kanban-board" v-for="board in boards" :key="board.name" v-on:dragover="dragover" v-on:drop="drophandler">
     {{board.name}}
     <div v-for="(item,index) in board.items" draggable="true" v-on:dragstart="dragstart" :key="index">
       {{item}}
@@ -17,15 +17,24 @@ export default {
   },
   data: function() {
     return {
-      boards: [{ name: "board1", items: ["something","other something"] }, { name: "board2", items: [] }, { name: "board3", items: [] }]
+      boards: [
+        { name: "board1", items: ["something", "other something"] },
+        { name: "board2", items: [] },
+        { name: "board3", items: [] }
+      ]
     };
   },
   methods: {
-    dragstart: function(event) {
+    dragstart: function(e) {
       console.log("dragstart");
     },
-    drophandler: function(event) {
+    drophandler: function(e) {
+      console.log(e);
       console.log("drophandler");
+    },
+    dragover: function(e) {
+      ev.preventDefault();
+      console.log("dragoverhandler");
     }
   }
 };
